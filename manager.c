@@ -94,3 +94,22 @@ void saveData(Product *p[], int count){
         fclose(fp);
         printf("저장됨!\n");
 }//파일로 저장
+
+int loadData(Product *p[]){
+        int count = 0;
+        FILE *fp;
+        fp = fopen("product.txt", "wt");
+        if(fp == NULL){
+                printf("=> 파일 없음\n");
+                return 0;
+        }
+        for(int i=0; i<count; i++){
+                fscanf(fp,"%[^\n]s %[^\n]s %s %d %d", p[i]->product_name, p[i]->detail, p[i]->weight, &p[i]->price, &p[i]->delivery);
+                if(feof(fp)){
+                        break;
+                }
+        }
+        fclose(fp);
+        printf("=>로딩 성공\n");
+        return count;
+}  // 전체 등록된 제품 리스트 출력
