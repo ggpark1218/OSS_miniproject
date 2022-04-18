@@ -59,6 +59,26 @@ int main(void){
 	printf("\nDebug: [listProduct called] count = %d, index = %d\n", count, index);
 #endif 
         }
+	else if (menu == 5){
+			if(count ==0){
+				printf("데이터가 없습니다!\n");
+			}
+			else{
+				listProduct(fp, index);
+			}
+		}
+	else if (menu == 6){
+			int searchMenu;
+			printf("어떤 것을 검색 하시겠습니까?\n1.제품명 검색\n2.상세설명 검색\n3.가격 검색\n\n");
+			printf("번호를 고르세요");
+			scanf("%d", &searchMenu);
+			switch(searchMenu){
+				case 1 : searchProduct(fp, index); break;
+				case 2 : searchDetail(fp, index); break;
+				case 3 : searchDetail(fp, index); break;
+				default: break;
+			}
+		}
     }
     printf("종료됨!\n");
     return 0;
