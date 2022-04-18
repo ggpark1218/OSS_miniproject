@@ -59,4 +59,27 @@ void searchDetail(Product *p[], int count){
     }
     printf("\n");
 
-}
+} //제품 상세 설명 검색
+
+void searchPrice(Product *p[], int count){
+	int scnt = 0;
+	int min=0, max=0;
+	printf("검색할 최소가격과 최대 가격은?\n");
+	printf("최소가격: ");
+	scanf("%d", &min);
+	printf("최대가격: ");
+	scanf("%d", &max);
+	printf("\n No NAME DETAIL        WEIGHT PRICE DEL\n");
+    printf("======================================\n");
+	for(int i =0; i<count; i++){
+		if(p[i]->price >= min && p[i]->price <= max){
+			printf("%2d", i+1);
+			readProduct(*p[i]);
+			printf("\n");
+			scnt++;
+		}
+	}
+	if(scnt == 0){
+		printf("검색된 데이터 없음!\n");
+	}
+} //제품 가격 범위 검색
