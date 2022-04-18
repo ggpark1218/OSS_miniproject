@@ -83,3 +83,14 @@ void searchPrice(Product *p[], int count){
 		printf("검색된 데이터 없음!\n");
 	}
 } //제품 가격 범위 검색
+
+void saveData(Product *p[], int count){
+    FILE *fp;
+     fp = fopen("product.txt", "wt");
+     for(int i=0; i<count; i++){
+                if(p[i] == NULL) continue;
+                fprintf("%s %s %s %d원 %d\n", p[i]->product_name, p[i]->detail, p[i]->weight, p[i]->price, p[i]->delivery);
+        }
+        fclose(fp);
+        printf("저장됨!\n");
+}//파일로 저장
