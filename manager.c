@@ -49,7 +49,7 @@ void searchDetail(Product *p[], int count){
        if(p[i]->price == -1) continue;
             if(strstr(p[i]->product_name, search)){
                 printf("%2d ", i+1);
-                printf(" product_name: %s", p[i]->product_name, p[i]->detail);
+                printf(" product_name: %s \n detail: %s", p[i]->product_name, p[i]->detail);
                 scnt++;
             }
     }
@@ -89,7 +89,7 @@ void saveData(Product *p[], int count){
      fp = fopen("product.txt", "wt");
      for(int i=0; i<count; i++){
                 if(p[i] == NULL) continue;
-                fprintf("%s %s %s %d원 %d\n", p[i]->product_name, p[i]->detail, p[i]->weight, p[i]->price, p[i]->delivery);
+                fprintf(fp,"%s %s %s %d원 %d\n", p[i]->product_name, p[i]->detail, p[i]->weight, p[i]->price, p[i]->delivery);
         }
         fclose(fp);
         printf("저장됨!\n");
