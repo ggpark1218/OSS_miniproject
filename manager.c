@@ -24,8 +24,8 @@ void searchProduct(Product *p[], int count){
        if(p[i]->price == -1) continue;
             if(strstr(p[i]->product_name, search)){
                 printf("%2d ", i+1);
-                readScore(p[i]);
-                scnt++;
+                readProduct(*p[i]);
+		scnt++;
             }
     }
 
