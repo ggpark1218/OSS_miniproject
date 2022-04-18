@@ -8,6 +8,9 @@ int main(void){
     int count = 0, menu;
     Product *fp[100];
     int index =0;
+
+    count = loadData(fp);
+    index = count;
  
     while (1){
         menu = selectMenu();
@@ -17,10 +20,11 @@ int main(void){
                 continue;
         }
         if (menu == 1){
-            if(count >0)
+            if(count >0){
                 listProduct(fp, index);
-            else
+	    }else{
                 printf("데이터가 없습니다.\n");
+	    }
 #ifdef DEBUG
 	printf("\nDebug:[%s : %d] %s %s %s",__FILE__,__LINE__,__func__,__DATE__,__TIME__);
 	printf("\nDebug: [listProduct called] count = %d, index = %d\n", count, index);
@@ -64,7 +68,7 @@ int main(void){
 				printf("데이터가 없습니다!\n");
 			}
 			else{
-				listProduct(fp, index);
+				saveData(fp, index);
 			}
 		}
 	else if (menu == 6){

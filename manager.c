@@ -99,17 +99,18 @@ void saveData(Product *p[], int count){
 int loadData(Product *p[]){
         int count = 0;
         FILE *fp;
-        fp = fopen("product.txt", "wt");
+        fp = fopen("product.txt", "rt");
         if(fp == NULL){
                 printf("=> 파일 없음\n");
-                return 0;
+		return 0;
         }
-        for(int i=0; i<count; i++){
-                fscanf(fp,"%[^\n]s %[^\n]s %s %d %d", p[i]->product_name, p[i]->detail, p[i]->weight, &p[i]->price, &p[i]->delivery);
-                if(feof(fp)){
-                        break;
-                }
-        }
+	else{
+        	for(int i=0; i<100; i++){
+                	fscanf(fp,"%[^\n]s %[^\n]s %s %d %d", p[i]->product_name, p[i]->detail, p[i]->weight, &p[i]->price, &p[i]->delivery);
+                	count++;
+			if(feof(fp)) break;
+		}
+       	}
         fclose(fp);
         printf("=>로딩 성공\n");
         return count;
