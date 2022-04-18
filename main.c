@@ -75,7 +75,7 @@ int main(void){
 			switch(searchMenu){
 				case 1 : searchProduct(fp, index); break;
 				case 2 : searchDetail(fp, index); break;
-				case 3 : searchDetail(fp, index); break;
+				case 3 : searchPrice(fp, index); break;
 				default: break;
 			}
 		}

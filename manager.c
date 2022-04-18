@@ -1,8 +1,9 @@
 #include "manager.h"
 
 void listProduct(Product *p[], int count){
-    printf("\n No NAME DETAIL                       WEIGHT PRICE DEL\n");
-    printf("======================================\n");
+    
+	printf("\n No NAME DETAIL        WEIGHT PRICE   DEL\n");
+	printf("======================================================\n");
     for(int i=0; i<count; i++){
         if(p[i] == NULL) continue;
         printf("%2d ", i+1);
@@ -17,8 +18,8 @@ void searchProduct(Product *p[], int count){
 
     printf("검색할 이름은? ");
     scanf(" %s", search);
-
-    printf("*****************\n");
+    
+    printf("************************\n");
 
     for(int i=0; i<count; i++){
        if(p[i]->price == -1) continue;
@@ -42,8 +43,8 @@ void searchDetail(Product *p[], int count){
 
     printf("상세 설명이 필요한 제품의 이름은? ");
     scanf(" %s", search);
-
-    printf("*****************\n");
+    
+    printf("************************\n");
 
     for(int i=0; i<count; i++){
        if(p[i]->price == -1) continue;
@@ -69,8 +70,8 @@ void searchPrice(Product *p[], int count){
 	scanf("%d", &min);
 	printf("최대가격: ");
 	scanf("%d", &max);
-	printf("\n No NAME DETAIL        WEIGHT PRICE DEL\n");
-    printf("======================================\n");
+    	printf("\n No NAME DETAIL        WEIGHT PRICE   DEL\n");
+	printf("======================================================\n");
 	for(int i =0; i<count; i++){
 		if(p[i]->price >= min && p[i]->price <= max){
 			printf("%2d", i+1);

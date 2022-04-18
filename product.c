@@ -35,7 +35,7 @@ int createProduct(Product *p){
     return 1;
 }                // 제품을 추가하는 함수
 void readProduct(Product p){
-    printf("%s %s %s %d원 %d\n", p.product_name, p.detail, p.weight, p.price, p.delivery);
+    printf("%4s %10s %5s %6d원 %2d\n", p.product_name, p.detail, p.weight, p.price, p.delivery);
 }                    // 하나의 제품 출력 함수
 int updateProduct(Product *p){
     printf("수정할 제품명은? ");
