@@ -35,3 +35,28 @@ void searchProduct(Product *p[], int count){
     printf("\n");
 
 }	//제품 이름 검색
+
+void searchDetail(Product *p[], int count){
+    int scnt = 0;
+    char search[20];
+
+    printf("상세 설명이 필요한 제품의 이름은? ");
+    scanf(" %s", search);
+
+    printf("*****************\n");
+
+    for(int i=0; i<count; i++){
+       if(p[i]->price == -1) continue;
+            if(strstr(p[i]->product_name, search)){
+                printf("%2d ", i+1);
+                printf(" product_name: %s", p[i]->product_name, p[i]->detail);
+                scnt++;
+            }
+    }
+
+    if(scnt == 0) {
+        printf("=>검색된 데이터 없음!");
+    }
+    printf("\n");
+
+}
